@@ -3,13 +3,13 @@
     <li><%= link_to  "Student Listing", students_path %></li>
     <li><%= link_to  "Add Course", new_course_path  %>
     <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <li><%= link_to  "Log Out", logout_path, method: :delete %></li>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
+    <li><%= link_to  "Student Listing", students_path %></li>
+    <li><%= link_to  "Add Course", new_course_path  %>
     <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <li><%= link_to  "Log Out", logout_path, method: :delete %></li>
   </ul>
   <nav class="light-blue darken-3">
       <div class="container">
@@ -19,7 +19,11 @@
           <ul id="nav-mobile" class="left hide-on-med-and-down">
             <li><%= link_to  "Courses", root_path %></li>
             <li><%= link_to  "Enrollment", new_student_path %></li> 
+            <% if (logged_in?) %>
             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+            <% else %>
+            <li><%= link_to  "Log In", login_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -27,5 +31,9 @@
   <ul class="sidenav" id="mobile-demo">
     <li><%= link_to  "Courses", root_path %></li>
     <li><%= link_to  "Enrollment", new_student_path %></li> 
+    <% if (logged_in?) %>
     <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+    <% else %>
+    <li><%= link_to  "Log In", login_path %></li>
+    <% end %>
   </ul>
