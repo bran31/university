@@ -4,12 +4,12 @@ class CoursesController < ApplicationController
     end
 
     def new
-        @courses = Course.new
+        @course = Course.new
     end
     
     def create
-        @courses = Course.new(courses_params)
-        if @courses.save
+        @course = Course.new(courses_params)
+        if @course.save
             flash[:notice] = "You have successfully entered a course!"
             redirect_to root_path
         else
@@ -21,9 +21,9 @@ class CoursesController < ApplicationController
 
 private
 
-def courses_params
-    params.require(:courses).permit(:short_name, :name, :description)
-end
+    def courses_params
+        params.require(:course).permit(:short_name, :name, :description)
+    end
 
 
 
