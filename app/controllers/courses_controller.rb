@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
+   
+   
     def index
-        @courses = Course.all
+        @course = Course.all
     end
 
     def new
@@ -17,7 +19,23 @@ class CoursesController < ApplicationController
         end
     end
 
+    def show 
+        
+    end
 
+    def edit 
+       
+    end
+
+    def update
+        
+        if @course.update(course_params)
+            flash[:notice] = "you have successfully updated your course"
+            redirect_to @course
+        else
+            render 'edit'
+        end
+    end
 
 private
 
